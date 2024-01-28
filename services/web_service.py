@@ -122,7 +122,7 @@ def attach_endpoints(app: Flask):
 
         headers = {
             'Content-Type': 'application/x-yaml; charset=utf-8',
-            'Content-Disposition': f'attachment; filename=Clash-{fake.color_name()}.yaml',
+            'Content-Disposition': f'attachment; filename=Warp-{fake.color_name()}.yaml',
             "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; expire=253388144714"
         }
 
@@ -225,7 +225,7 @@ def attach_endpoints(app: Flask):
 
         headers = {
             'Content-Type': 'text/plain; charset=utf-8',
-            'Content-Disposition': 'attachment; filename=surge.conf',
+            'Content-Disposition': 'attachment; filename=warp_subscription.conf',
             "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; expire=253388144714"
         }
 
