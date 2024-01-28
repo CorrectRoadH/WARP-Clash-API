@@ -150,6 +150,25 @@ def attach_endpoints(app: Flask):
         response.headers = headers
 
         return response
+    
+    @app.route('/wireguard', methods=['GET'])
+    @rate_limit()
+    @authorized()
+    def http_wireguard_default():
+        account = getCurrentAccount(logger)
+
+        fileData = generate_Wireguard_subFile(account, logger, best=False)
+
+        headers = {
+            'Content-Type': 'application/x-conf; charset=utf-8',
+            'Content-Disposition': f'attachment; filename={fake.lexify("????????????").lower()}.conf'
+        }
+
+        response = make_response(fileData)
+        response.headers = headers
+
+        return response
+
 
     @app.route('/api/only_proxies', methods=['GET'])
     @rate_limit()
