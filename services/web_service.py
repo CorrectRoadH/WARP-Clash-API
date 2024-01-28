@@ -118,12 +118,12 @@ def attachEndpoints(app: Flask):
         return response
     
     @app.route('/clash', methods=['GET'])
-    @rate_limit()
+    @rateLimit()
     @authorized()
     def http_clash_default():
         account = getCurrentAccount(logger)
 
-        fileData = generate_Clash_subFile(account, logger, best=False, random_name=True)
+        fileData = generateClashSubFile(account, logger, best=False, random_name=True)
 
         headers = {
             'Content-Type': 'application/x-yaml; charset=utf-8',
@@ -158,14 +158,14 @@ def attachEndpoints(app: Flask):
         return response
     
     @app.route('/wireguard', methods=['GET'])
-    @rate_limit()
+    @rateLimit()
     @authorized()
     # cors
     @cross_origin()
     def http_wireguard_default():
         account = getCurrentAccount(logger)
 
-        fileData = generate_Wireguard_subFile(account, logger, best=False)
+        fileData = generateWireguardSubFile(account, logger, best=False)
 
         headers = {
             'Content-Type': 'application/x-conf; charset=utf-8',
@@ -221,12 +221,12 @@ def attachEndpoints(app: Flask):
         return response
     
     @app.route('/surge', methods=['GET'])
-    @rate_limit()
+    @rateLimit()
     @authorized()
     def http_surge_default():
         account = getCurrentAccount(logger)
 
-        fileData = generate_Surge_subFile(account, logger, best=False, random_name=True)
+        fileData = generateSurgeSubFile(account, logger, best=False, random_name=True)
 
         headers = {
             'Content-Type': 'text/plain; charset=utf-8',
