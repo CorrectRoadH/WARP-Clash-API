@@ -6,6 +6,7 @@ from config import SECRET_KEY, REQUEST_RATE_LIMIT
 from services.subscription import generate_Clash_subFile, generate_Wireguard_subFile, generate_Surge_subFile
 from services.common import *
 from faker import Faker
+from flask_cors import cross_origin
 
 RATE_LIMIT_MAP = {}
 
@@ -154,6 +155,8 @@ def attach_endpoints(app: Flask):
     @app.route('/wireguard', methods=['GET'])
     @rate_limit()
     @authorized()
+    # cors
+    @cross_origin()
     def http_wireguard_default():
         account = getCurrentAccount(logger)
 
