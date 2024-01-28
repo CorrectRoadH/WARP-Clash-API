@@ -1,4 +1,4 @@
-#!MANAGED-CONFIG https://subscription.zeabur.app/s/Surge interval=43200 strict=true
+#!MANAGED-CONFIG https://subs.zeabur.app/surge interval=43200 strict=true
 # Surge 的规则配置手册: https://manual.nssurge.com/
 # Thanks @Hackl0us SS-Rule-Snippet
 # Thanks @CorrectRoadH WARP+ to Surge
