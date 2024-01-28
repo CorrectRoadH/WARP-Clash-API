@@ -221,7 +221,7 @@ def attach_endpoints(app: Flask):
     def http_surge_default():
         account = getCurrentAccount(logger)
 
-        fileData = generate_Surge_subFile(account, logger, best=True, random_name=True)
+        fileData = generate_Surge_subFile(account, logger, best=False, random_name=True)
 
         headers = {
             'Content-Type': 'text/plain; charset=utf-8',
