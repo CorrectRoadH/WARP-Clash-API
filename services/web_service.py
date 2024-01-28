@@ -110,6 +110,27 @@ def attach_endpoints(app: Flask):
         response.headers = headers
 
         return response
+    
+    @app.route('/clash', methods=['GET'])
+    @rate_limit()
+    @authorized()
+    def http_clash_default():
+        account = getCurrentAccount(logger)
+
+        fileData = generate_Clash_subFile(account, logger, best=False, random_name=True)
+
+        headers = {
+            'Content-Type': 'application/x-yaml; charset=utf-8',
+            'Content-Disposition': f'attachment; filename=Clash-{fake.color_name()}.yaml',
+            "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; expire=253388144714"
+        }
+
+        response = make_response(fileData)
+        response.headers = headers
+
+        return response
+
+
 
     @app.route('/api/wireguard', methods=['GET'])
     @rate_limit()
@@ -171,6 +192,26 @@ def attach_endpoints(app: Flask):
         response.headers = headers
 
         return response
+    
+    @app.route('/surge', methods=['GET'])
+    @rate_limit()
+    @authorized()
+    def http_surge_default():
+        account = getCurrentAccount(logger)
+
+        fileData = generate_Surge_subFile(account, logger, best=False, random_name=False)
+
+        headers = {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Content-Disposition': 'attachment; filename=surge.conf',
+            "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; expire=253388144714"
+        }
+
+        response = make_response(fileData)
+        response.headers = headers
+
+        return response
+
 
 
 def create_app(app_name: str = "web", logger: logging.Logger = None) -> Flask:
