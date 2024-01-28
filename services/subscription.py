@@ -17,6 +17,7 @@ CLASH = json.load(open("./config/clash.json", "r", encoding="utf8"))
 SURGE = configparser.ConfigParser()
 SURGE.read("./config/surge.conf")
 SURGE_RULE = open("./config/surge-rule.txt", "r", encoding="utf8").read()
+SURGE_SUB = open("./config/surge-sub.txt", "r", encoding="utf8").read()
 
 def generate_Clash_subFile(account: Account = None,
                            logger=logging.getLogger(__name__),
@@ -159,4 +160,4 @@ def generate_Surge_subFile(account: Account = None,
     else:
         surgeINI += SURGE_RULE
 
-    return surgeINI
+    return SURGE_SUB+surgeINI
