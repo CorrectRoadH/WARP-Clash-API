@@ -149,7 +149,7 @@ def attachEndpoints(app: Flask):
                                             proxy_format=proxy_format)
             headers = {
                 'Content-Type': 'text/plain; charset=utf-8',
-                'Content-Disposition': 'attachment; filename=surge.conf',
+                'Content-Disposition': 'attachment; filename=ToFree.conf',
                 "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; "
                                          f"expire=253388144714"
             }
@@ -157,7 +157,7 @@ def attachEndpoints(app: Flask):
             fileData = generateShadowRocketSubFile(account, logger, best=best, random_name=random_name)
             headers = {
                 'Content-Type': 'text/plain; charset=utf-8',
-                'Content-Disposition': 'attachment; filename=Shadowrocket.txt',
+                'Content-Disposition': 'attachment; filename=ToFree-Shadowrocket.txt',
                 "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; "
                                          f"expire=253388144714"
             }
@@ -167,7 +167,7 @@ def attachEndpoints(app: Flask):
                                             random_name=random_name)
             headers = {
                 'Content-Type': 'application/x-yaml; charset=utf-8',
-                'Content-Disposition': f'attachment; filename=Clash-{fake.color_name()}.yaml',
+                'Content-Disposition': f'attachment; filename=ToFree-{fake.color_name()}.yaml',
                 "Subscription-Userinfo": f"upload=0; download={account.usage}; total={account.quota}; "
                                          f"expire=253388144714"
             }
