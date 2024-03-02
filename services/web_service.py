@@ -207,14 +207,14 @@ def attachEndpoints(app: Flask):
                                              random_name=random_name,
                                              is_android=is_android,
                                              ipv6=ipv6)
-            file_name = f'Clash-{fake.color_name()}.yaml'
+            file_name = f'ToFree-{fake.color_name()}.yaml'
 
         elif sub_type == "wireguard":  # Wireguard
             file_data = generateWireguardSubFile(account,
                                                  logger,
                                                  best=best,
                                                  ipv6=ipv6)
-            file_name = f'WireGuard-{fake.lexify("????????????").lower()}.conf'
+            file_name = f'ToFree-{fake.lexify("????????????").lower()}.conf'
 
         elif sub_type == "surge":  # Surge
             file_data = generateSurgeSubFile(account,
@@ -223,7 +223,7 @@ def attachEndpoints(app: Flask):
                                              random_name=random_name,
                                              proxy_format=proxy_format,
                                              ipv6=ipv6)
-            file_name = f'Surge-{fake.color_name()}.conf'
+            file_name = f'ToFree-{fake.color_name()}.conf'
 
         elif sub_type == 'shadowrocket':  # Shadowrocket
             file_data = generateShadowRocketSubFile(account,
@@ -231,7 +231,7 @@ def attachEndpoints(app: Flask):
                                                     best=best,
                                                     random_name=random_name,
                                                     ipv6=ipv6)
-            file_name = f'Shadowrocket-{fake.color_name()}.conf'
+            file_name = f'ToFree-{fake.color_name()}.conf'
 
         elif sub_type == 'sing-box':  # Sing Box
             file_data = generateSingBoxSubFile(account,
@@ -239,7 +239,7 @@ def attachEndpoints(app: Flask):
                                                best=best,
                                                random_name=random_name,
                                                ipv6=ipv6)
-            file_name = f'SingBox-{fake.color_name()}.json'
+            file_name = f'ToFree-{fake.color_name()}.json'
 
         # This might be deprecated in the future.
         elif sub_type == "only_proxies":  # Only proxies
@@ -249,7 +249,7 @@ def attachEndpoints(app: Flask):
                                              proxy_format='with_groups',
                                              random_name=random_name,
                                              ipv6=ipv6)
-            file_name = f'Clash-{fake.color_name()}.yaml'
+            file_name = f'ToFree-{fake.color_name()}.yaml'
 
         else:
             return {

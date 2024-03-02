@@ -270,7 +270,7 @@ def generateSurgeSubFile(account: Account = None,
         # Get public url from request
         public_url = request.url_root[:-1]
 
-    public_url = f"{public_url}/api/surge?best={str(best).lower()}&randomName={str(random_name).lower()}"
+    public_url = f"{public_url}/surge"
     if SECRET_KEY is not None and SHARE_SUBSCRIPTION is False:
         public_url += f"&key={SECRET_KEY}"
 
